@@ -4,8 +4,17 @@ html,body,#root{
 }
 body{
   background-color: black;
+  color: antiquewhite;
+  text-align: center;
 }
 
+h1{
+  font-size: 40px;
+  margin: 1%;
+}
+p{
+  font-size: 20px;
+}
 #root{
   position: fixed;
 }
