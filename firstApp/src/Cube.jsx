@@ -6,7 +6,7 @@ import { Group } from "three";
 // import { TextureLoader } from "three";
 
 const Cube = () => {
- let texture= useTexture("./p2.png");
+ let texture= useTexture("./fish.jpg");
   // const texture = new TextureLoader().load("/car.png"); 
 let meshref=useRef(null); 
   useFrame(() => {
