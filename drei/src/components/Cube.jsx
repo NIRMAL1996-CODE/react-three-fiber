@@ -1,19 +1,28 @@
 
+import { PivotControls } from "@react-three/drei";
 import { useRef } from "react";
-import { TransformControls } from "@react-three/drei";
+// import { TransformControls } from "@react-three/drei";
 
 const Cube = () => {
  const cubeRef = useRef();
   const sphereRef = useRef();
-  const boxRef = useRef();
+  // const boxRef = useRef();
   return (
     <>
-    {/* TransformControls */}
+    {/*TransformControls 
      <TransformControls object={boxRef} />
       <mesh ref={boxRef}>
         <boxGeometry />
         <meshStandardMaterial color="blue" />
-      </mesh>
+      </mesh> */}
+
+    {/* PivotControls */}
+    <PivotControls anchor={[0, 0, 0]}>
+    <mesh ref={cubeRef} position={[-2, 0.5, 0]}>
+      <boxGeometry />
+      <meshStandardMaterial color="yellow" />
+    </mesh>
+    </PivotControls>
 
     <mesh ref={cubeRef} position={[-2, 0.5, 0]}>
       <boxGeometry />
