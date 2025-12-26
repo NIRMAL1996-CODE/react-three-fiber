@@ -1,5 +1,5 @@
 
-import { PivotControls } from "@react-three/drei";
+import { Html, PivotControls } from "@react-three/drei";
 import { useRef } from "react";
 // import { TransformControls } from "@react-three/drei";
 
@@ -21,6 +21,14 @@ const Cube = () => {
     <mesh ref={cubeRef} position={[-2, 0.5, 0]}>
       <boxGeometry />
       <meshStandardMaterial color="yellow" />
+
+      <Html position={[1,1,0]}
+      wrapperClass="label" //like this we can give class name for div
+      center
+      distanceFactor={6}
+      occlude={[sphereRef, cubeRef]} 
+      >Hello</Html>
+
     </mesh>
     </PivotControls>
 
