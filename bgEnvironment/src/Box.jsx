@@ -11,7 +11,7 @@ const Box = () => {
      {/* sunset, city, forest, studio, warehouse, night */}
 
     {/* Custom Environment with Background and Plane */}
-     <Environment  background >
+     {/* <Environment  background >
         <color args={["black"]} 
         attach= "background" />
 
@@ -19,7 +19,19 @@ const Box = () => {
           <planeGeometry />
           <meshBasicMaterial color={[10,0,0]} />
           </mesh>
-          
+
+      </Environment> */}
+
+      {/*lightformer  */}
+
+       <Environment background  preset="forest" > 
+     
+        <Lightformer intensity={5}
+        scale={10} 
+        color={[10,0,0]} 
+        position={[0, 0, -5]}
+        form="ring" />
+
       </Environment>
     
     <mesh position={[2, 1, 0]}>
