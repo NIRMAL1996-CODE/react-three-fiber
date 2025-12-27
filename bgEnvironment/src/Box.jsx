@@ -4,10 +4,10 @@ const Box = () => {
   return (
     <>
     {/* Environment Mapping */}
-     {/* <Environment 
+     <Environment 
       // background 
       ground={{ height: 5, radius: 28, scale: 100 }}
-     preset="forest" /> */}
+     preset="forest" />
      {/* sunset, city, forest, studio, warehouse, night */}
 
     {/* Custom Environment with Background and Plane */}
@@ -24,7 +24,7 @@ const Box = () => {
 
       {/*lightformer  */}
 
-       <Environment background  >
+       {/* <Environment background  >
         <color args={["black"]} 
         attach= "background" /> 
      
@@ -34,7 +34,7 @@ const Box = () => {
         position={[0, 0, -5]}
         form="ring" />
 
-      </Environment> 
+      </Environment>  */}
        <mesh position={[2, 1, 0]}>
       <boxGeometry />
       <meshStandardMaterial  />
@@ -44,6 +44,13 @@ const Box = () => {
       <meshStandardMaterial  />
     </mesh>
     
+    <Text position={[0, -1, 0]} fontSize={0.6} color="black">
+    Environment Mapping
+    </Text>
+    <Text position={[0, -2.5, 0]} fontSize={0.3} color="black" maxWidth={8} >
+    It makes 3D objects look real by giving natural light and reflections from the surroundings, so in most cases we don’t need extra lights to make the scene look realistic.
+    </Text>
+
     {/* Stage Helper in React Three Fiber */}
     {/* <Stage contactShadow={{opacity : 0.2, blur : 3}}
     environment="sunset"
