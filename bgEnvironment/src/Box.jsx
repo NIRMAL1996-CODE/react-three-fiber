@@ -1,5 +1,5 @@
 import { Environment, Lightformer, Stage } from "@react-three/drei";
-
+import { Text } from "@react-three/drei";
 const Box = () => {
   return (
     <>
@@ -55,6 +55,12 @@ const Box = () => {
       <sphereGeometry />
       <meshStandardMaterial  color="yellow"/>
     </mesh>
+    <Text position={[0, 4, 0]} fontSize={0.5} color="cyan">
+      Stage Helper in React Three Fiber.
+    </Text>
+    <Text position={[0, 3, 0]} fontSize={0.3} color="cyan" maxWidth={6} >
+    Stage is used to automatically light, shadow, and place objects nicely in a scene.
+    </Text>
     </Stage>
     
     </>
