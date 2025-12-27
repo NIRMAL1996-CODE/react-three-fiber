@@ -24,7 +24,9 @@ const Box = () => {
 
       {/*lightformer  */}
 
-       {/* <Environment background  preset="forest" > 
+       <Environment background  >
+        <color args={["black"]} 
+        attach= "background" /> 
      
         <Lightformer intensity={5}
         scale={10} 
@@ -32,18 +34,18 @@ const Box = () => {
         position={[0, 0, -5]}
         form="ring" />
 
-      </Environment> */}
-       {/* <mesh position={[2, 1, 0]}>
+      </Environment> 
+       <mesh position={[2, 1, 0]}>
       <boxGeometry />
       <meshStandardMaterial  />
     </mesh>
      <mesh position={[-2, 1, 0]}>
       <sphereGeometry />
       <meshStandardMaterial  />
-    </mesh> */}
-
+    </mesh>
+    
     {/* Stage Helper in React Three Fiber */}
-    <Stage contactShadow={{opacity : 0.2, blur : 3}}
+    {/* <Stage contactShadow={{opacity : 0.2, blur : 3}}
     environment="sunset"
     preset="portrait"
     intensity={2}>
@@ -61,7 +63,7 @@ const Box = () => {
     <Text position={[0, 3, 0]} fontSize={0.3} color="cyan" maxWidth={6} >
     Stage is used to automatically light, shadow, and place objects nicely in a scene.
     </Text>
-    </Stage>
+    </Stage> */}
     
     </>
   );
