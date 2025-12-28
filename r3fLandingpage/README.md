@@ -1,16 +1,73 @@
-# React + Vite
+# useFrame vs Three.js Animation Loop (Easy Notes)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is `useFrame`?
+`useFrame` = runs code **every frame**  
+(frame = one screen refresh, ~60 times per second)
 
-Currently, two official plugins are available:
+Used in **React Three Fiber (R3F)**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Real-world example
+Like a **fan** 🌀  
+- Fan keeps spinning  
+- It needs constant power  
+- `useFrame` gives that power every frame
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## What can `useFrame` do?
+`useFrame` is **NOT only for rotation**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+It is used for:
+- Rotation (turning object)
+- Movement (going left/right)
+- Animation (smooth change)
+- Camera follow (camera chasing object)
+- Physics update (gravity = falling)
+
+**Key idea:**  
+`useFrame` = continuous (never stopping) update
+
+---
+
+## Same thing in pure Three.js?
+Yes ✅
+
+### Three.js uses:
+`requestAnimationFrame`
+
+- It creates an **animation loop**  
+(loop = repeat forever)
+- Runs code again and again
+
+---
+
+## Relation (very important)
+- **Three.js → `requestAnimationFrame`**
+- **React Three Fiber → `useFrame`**
+
+Both do the **same job**  
+Difference = syntax (way of writing)
+
+---
+
+## Why `useFrame` exists?
+Because:
+- React friendly
+- Cleaner code
+- No manual loop setup
+- Automatically managed by R3F
+
+---
+
+## When to use what? (Golden Rule)
+- **Always moving → `useFrame`**
+- **Move once → animation (GSAP, Drei)**
+- **Instant change → React state (`useState`)**
+
+---
+
+## One-line summary
+`useFrame` is the React version of Three.js’s `requestAnimationFrame`  
+Used for **continuous real-time updates** in 3D scenes.
