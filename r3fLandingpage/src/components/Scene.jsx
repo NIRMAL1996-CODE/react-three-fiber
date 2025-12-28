@@ -11,5 +11,4 @@ const Scene = ({ color }) => {
     </Canvas>
   );
 };
-
 export default Scene;
