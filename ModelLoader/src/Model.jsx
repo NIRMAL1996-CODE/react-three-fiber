@@ -1,9 +1,9 @@
 import { useGLTF } from "@react-three/drei";
 
 const Model = () => {
-  const model = useGLTF("/man.glb");
+  const model = useGLTF("/car.glb");
 
-  return <primitive object={model.scene} scale={0.02} position-y={-0.2}/>;
+  return <primitive object={model.scene} scale={0.9} position-y={-0.2}/>;
 };
 
 export default Model;
