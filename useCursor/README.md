@@ -1,16 +1,68 @@
-# React + Vite
+# 🖱️ Cursor Handling in R3F (React Three Fiber)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1️⃣ CSS / Tailwind cursor-pointer
+- Works only for HTML elements
+- Does NOT know which 3D object is hovered
+- Affects the whole canvas
 
-Currently, two official plugins are available:
+Example:
+canvas {
+  cursor: pointer;
+}
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use when:
+- You want cursor always pointer
+- No object-level interaction needed
 
-## React Compiler
+Kid memory:
+"CSS paints everything same"
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 2️⃣ Manual cursor using pointer events (Best control)
+- Uses R3F raycasting
+- Changes cursor only when mouse touches a 3D object
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Example:
+onPointerEnter → cursor = pointer  
+onPointerLeave → cursor = default
+
+Use when:
+- You want exact control per object
+- Hover / click interactions needed
+
+Kid memory:
+"Change cursor only when touching the cube"
+
+---
+
+## 3️⃣ useCursor helper (Easy & clean way)
+- Helper from @react-three/drei
+- Automatically handles cursor
+- Less code, very clean
+
+Example idea:
+useCursor(hovered)
+
+Use when:
+- You want clean code
+- No custom cursor logic needed
+
+Kid memory:
+"Helper does the work for you"
+
+---
+
+## 🔁 Which one should I use?
+
+- Only HTML → CSS / Tailwind
+- 3D object interaction → Manual cursor OR useCursor
+- Beginner friendly → useCursor
+- Advanced control → Manual cursor
+
+---
+
+## ✅ Final rule
+CSS sees canvas  
+R3F sees 3D objects  
+Helpers make life easy
