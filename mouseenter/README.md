@@ -1,16 +1,40 @@
-# React + Vite
+## 🧩 Raycast & meshBounce Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1️⃣ What is Raycasting?
 
-Currently, two official plugins are available:
+- **Raycasting** = shooting an invisible ray from a point (like mouse)  
+- Checks which **3D object** it hits in the scene  
+- Used for **mouse events, selection, interaction**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### 2️⃣ Raycast in Three.js vs R3F
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Feature         | Three.js                     | React Three Fiber (R3F)             |
+|-----------------|-----------------------------|------------------------------------|
+| Event handling  | Manual, addEventListener    | Built-in React props (`onPointerEnter`, `onClick`) |
+| Raycasting      | `Raycaster` class           | Automatic under the hood          |
+| Pointer support | Only mouse                  | Mouse, touch, pen (all pointers)  |
 
-## Expanding the ESLint configuration
+**Meaning:**  
+- Three.js → you must create ray and check objects manually  
+- R3F → automatically handles raycasting for pointer events
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 3️⃣ Custom Raycast (meshBounce) old version not need now.
+
+- You can override default raycast logic:
+```jsx
+<mesh raycast={meshBounce} onClick={() => console.log("hit")} />
+
+## 🖱️ useCursor (from @react-three/drei)
+
+### 1️⃣ What is useCursor?
+
+- `useCursor` is a **helper hook** from Drei  
+- Changes the **mouse cursor style** when hovering over objects  
+- Works automatically with **pointer events**  
+
+Important point 👶
+useCursor is from @react-three/drei, not from @react-three/fiber.
