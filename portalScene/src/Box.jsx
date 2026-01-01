@@ -1,13 +1,11 @@
-import { Color } from "three";
+import { Sparkles, useGLTF } from "@react-three/drei";
 
 const Cube = () => {
-  return (
-    <>
-    <color attach="background" args={["black"]} />
-    <mesh scale={1.5}>
-      <boxGeometry/>
-      <meshNormalMaterial/>
-    </mesh>
+  const portal = useGLTF("/portal.glb");
+  return (     
+<>
+   <primitive object={portal.scene} scale={0.5} castShadow/>;
+   <Sparkles />
     </>
   );
 };
