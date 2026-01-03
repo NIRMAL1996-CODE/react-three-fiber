@@ -28,7 +28,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { useEffect } from "react";
 
 const Model = () => {
-  const gltf = useGLTF("/hand.glb");
+  const gltf = useGLTF("/2.glb") ;
   const { actions } = useAnimations(gltf.animations, gltf.scene);
 
   // actions["AnimationName"]?.play(); // start animation
